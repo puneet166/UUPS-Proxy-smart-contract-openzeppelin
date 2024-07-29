@@ -13,7 +13,6 @@ contract UpgradableContract is
     using CountersUpgradeable for CountersUpgradeable.Counter;
     CountersUpgradeable.Counter private changeId;
     uint public number;
- string public name;
 
     function _authorizeUpgrade(address newImplementation) internal override onlyOwner {}
 
@@ -32,8 +31,5 @@ contract UpgradableContract is
         uint id = changeId.current();
         return (number, id);
     }
-    function addName(string memory _name) public returns (string memory){
-        name = _name;
-        return name;
-    }
+
 }
